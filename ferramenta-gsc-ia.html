@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Generative AI Share of Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7ff;--surface:#fff;--ink:#1c1b4b;--muted:#5a5f86;--line:#dfe3f6;--violet:#6a4cff;--violet-soft:#ebe6ff;--teal:#14b8a6;--teal-soft:#d9f6f2;--sun:#ffb547;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:8px}
+.btn{display:inline-block;background:var(--violet);color:#fff;font-weight:700;text-decoration:none;padding:16px 28px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(106,76,255,.55);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -8px rgba(106,76,255,.6)}
+.btn.alt{background:var(--sun);color:var(--ink);box-shadow:0 10px 24px -8px rgba(255,181,71,.7)}
+header{padding:20px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px;display:flex;align-items:center;gap:10px}
+.logo i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--violet) 55%,var(--teal) 55%)}
+header .btn{padding:10px 20px;font-size:15px}
+.hero{padding:40px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,5.6vw,66px);font-weight:800}
+.hero .sub{font-size:20px;margin-top:22px;color:var(--ink);font-weight:500;max-width:34em}
+.hero .support{margin-top:16px;color:var(--muted);max-width:36em}
+.hero .btn{margin-top:32px}
+.hero small{display:block;margin-top:14px;color:var(--muted);font-size:14px}
+.mock{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 30px 60px -30px rgba(60,50,160,.35)}
+.mock-top{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);margin-bottom:18px}
+.dots{display:flex;gap:6px}.dots b{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:54px;line-height:1}
+.big span{font-size:18px;font-weight:500;color:var(--muted);margin-left:8px}
+.bar{display:flex;height:22px;border-radius:999px;overflow:hidden;margin:18px 0 10px;background:var(--violet-soft)}
+.bar .s{width:72%;background:var(--violet);animation:grow 1.4s .2s cubic-bezier(.2,.8,.2,1) both}
+.bar .a{flex:1;background:var(--teal)}
+@keyframes grow{from{width:0}}
+.legend{display:flex;justify-content:space-between;font-size:14px;font-weight:500}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.chart{margin-top:22px;border-top:1px solid var(--line);padding-top:16px}
+.chart p{font-size:13px;color:var(--muted)}
+.chart svg{width:100%;height:auto;display:block;margin-top:6px}
+.kw{margin-top:14px;display:grid;gap:8px;font-size:14px}
+.kw div{display:flex;justify-content:space-between;background:var(--bg);border-radius:12px;padding:9px 14px}
+.kw b{color:#0d8f82}
+section{padding:88px 0}
+.problem{background:var(--surface);border-block:1px solid var(--line)}
+.problem .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+h2{font-size:clamp(30px,4vw,46px);font-weight:800}
+.problem p{color:var(--muted);margin-bottom:18px}
+.problem p:first-of-type{margin-top:0}
+.head{max-width:700px;margin-bottom:44px}
+.head p{color:var(--muted);margin-top:14px;font-size:19px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px}
+.card:nth-child(1){background:var(--violet-soft);border-color:transparent}
+.card:nth-child(4){background:var(--teal-soft);border-color:transparent}
+.ico{width:46px;height:46px;border-radius:14px;background:var(--surface);display:grid;place-items:center;margin-bottom:18px}
+.ico svg{width:24px;height:24px;stroke:var(--violet);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{position:relative;padding:28px 26px;border-radius:22px;background:var(--surface);border:1px solid var(--line)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:18px}
+.step h3{font-size:20px;margin-bottom:8px}.step p{color:var(--muted);font-size:16px}
+.who{background:var(--surface);border-block:1px solid var(--line)}
+.who ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.who li{padding:26px;border-radius:22px;background:var(--bg)}
+.who li:nth-child(2){background:var(--violet-soft)}.who li:nth-child(3){background:var(--teal-soft)}
+.who h3{font-size:20px;margin-bottom:10px}.who p{color:var(--muted);font-size:16px}
+.final{padding:88px 0 96px}
+.final .box{background:linear-gradient(135deg,#6a4cff,#8f6bff 60%,#3fc4d4);color:#fff;border-radius:32px;padding:72px 32px;text-align:center}
+.final h2{max-width:16em;margin:0 auto}
+.final p{margin:18px auto 32px;max-width:34em;font-size:19px;opacity:.95}
+footer{padding:0 0 40px;text-align:center;color:var(--muted);font-size:14px}
+@media(max-width:860px){.hero .wrap,.problem .wrap{grid-template-columns:1fr;gap:36px}.grid,.steps,.who ul{grid-template-columns:1fr}section,.final{padding:60px 0}.hero{padding-bottom:60px}}
+@media(prefers-reduced-motion:reduce){.bar .s{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="logo"><i></i>Generative AI Share of Search</div><a class="btn" href="ferramenta-gsc-ia.html">Experimentar</a></div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+<div>
+<h1>Generative AI share of search</h1>
+<p class="sub">Entenda o impacto real da Inteligência Artificial no seu tráfego de pesquisa e descubra quanta visibilidade a sua marca está a ganhar (ou a perder) nas respostas geradas por IA.</p>
+<p class="support">A forma como os utilizadores pesquisam mudou. Com o foco crescente na IA Generativa e nos AI Overviews, depender apenas das métricas tradicionais do Google Search Console já não revela toda a história. A nossa ferramenta cruza os seus dados do GSC para lhe dar uma visão clara, precisa e acionável do seu Share of Search na era da IA.</p>
+<a class="btn" href="ferramenta-gsc-ia.html">Analisar o meu Share of Search gratuitamente</a>
+<small>Os dados NÃO são armazenados</small>
+</div>
+<div class="mock" aria-label="Exemplo ilustrativo do relatório">
+<div class="mock-top"><div class="dots"><b></b><b></b><b></b></div><span>Exemplo ilustrativo</span></div>
+<div class="big">28%<span>da visibilidade vem de IA</span></div>
+<div class="bar"><div class="s"></div><div class="a"></div></div>
+<div class="legend"><span><i style="background:var(--violet)"></i>Search tradicional 72%</span><span><i style="background:var(--teal)"></i>Generative AI 28%</span></div>
+<div class="chart"><p>Evolução do Generative AI Share of Search</p>
+<svg viewBox="0 0 400 110" role="img" aria-label="Linha crescente ao longo dos meses"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14b8a6" stop-opacity=".3"/><stop offset="1" stop-color="#14b8a6" stop-opacity="0"/></linearGradient></defs>
+<path d="M0 95 C60 90 90 80 140 66 S230 50 270 36 S350 18 400 10 L400 110 L0 110Z" fill="url(#g)"/>
+<path d="M0 95 C60 90 90 80 140 66 S230 50 270 36 S350 18 400 10" fill="none" stroke="#14b8a6" stroke-width="3" stroke-linecap="round"/><circle cx="400" cy="10" r="5" fill="#14b8a6"/></svg></div>
+<div class="kw"><div><span>melhor crm para pme</span><b>citada em IA</b></div><div><span>como medir share of search</span><b>citada em IA</b></div></div>
+</div>
+</div></div>
+
+<section class="problem"><div class="wrap">
+<h2>A pesquisa orgânica mudou. As suas métricas de SEO já acompanham essa evolução?</h2>
+<div><p>Os motores de busca deixaram de ser apenas listas de links azuis. Hoje, as respostas geradas por IA ocupam o topo dos resultados, capturando a atenção e os cliques dos utilizadores antes mesmo de estes chegarem aos resultados tradicionais.</p>
+<p>Sem uma ferramenta dedicada para isolar e comparar o tráfego proveniente da IA Generativa com o tráfego do Search tradicional, fica às escuras sobre o verdadeiro desempenho da sua estratégia de conteúdos.</p></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="head"><h2>Porquê utilizar a Generative AI share of search?</h2><p>Transforme dados complexos do Google Search Console em decisões estratégicas de visibilidade.</p></div>
+<div class="grid">
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Separação clara do tráfego (Search vs. AI)</h3><p>Isole o impacto da IA Generativa no seu tráfego orgânico global. Identifique exatamente qual a percentagem da sua visibilidade que vem das respostas geradas por IA vs. a pesquisa tradicional.</p></div>
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></div><h3>Integração direta com os seus dados reais do GSC</h3><p>Sem estimativas opacas ou dados de terceiros. A ferramenta analisa apenas os dados que são retirados da exportação efetuada no Google Search Console, garantindo máxima precisão e conformidade com o desempenho real do seu domínio.</p></div>
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div><h3>Acompanhamento da evolução temporal</h3><p>Monitorize como o seu Generative AI Share of Search cresce ao longo do tempo. Avalie o impacto de otimizações para GEO (Generative Engine Optimization) e descubra que intenções de pesquisa estão a ser ganhas pela IA.</p></div>
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><h3>Tomada de decisão baseada em dados acionáveis</h3><p>Descubra quais as páginas do seu website que têm mais visibilidade, os países e os dispositivos.</p></div>
+</div></div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="head"><h2>Como funciona, em 3 passos</h2></div>
+<div class="steps">
+<div class="step"><h3>Ligue os dados do seu Google Search Console</h3><p>Faça o download dos seus dados do Google Search Console e adicione os ficheiros na ferramenta com total segurança.</p></div>
+<div class="step"><h3>Defina o período e parâmetros de análise</h3><p>Escolha os intervalos de tempo no Google Search Console e os segmentos que pretende comparar.</p></div>
+<div class="step"><h3>Obtenha o relatório do seu Share of Search</h3><p>Visualize dashboards claros com a percentagem de visibilidade da IA Generativa vs. Search tradicional e exporte insights para a sua equipa ou clientes.</p></div>
+</div></div></section>
+
+<section class="who"><div class="wrap">
+<div class="head"><h2>Para quem é esta ferramenta?</h2></div>
+<ul>
+<li><h3>Especialistas em SEO &amp; consultores</h3><p>Para demonstrarem aos clientes o impacto real das AI Overviews na visibilidade e justificarem estratégias de GEO.</p></li>
+<li><h3>Equipas de Content Marketing</h3><p>Para identificarem que conteúdos precisam de ser adaptados para responder com precisão às pesquisas de IA.</p></li>
+<li><h3>CMOs e Founders</h3><p>Para acompanharem a quota de mercado de pesquisa (Share of Search) num ambiente de pesquisa em constante mudança.</p></li>
+</ul></div></section>
+
+<div class="final" id="experimentar"><div class="wrap"><div class="box">
+<h2>Pronto para dominar a visibilidade na era da IA Generativa?</h2>
+<p>Deixe de adivinhar o impacto da IA. Descubra o seu verdadeiro Share of Search a partir dos seus dados do Google Search Console.</p>
+<a class="btn alt" href="ferramenta-gsc-ia.html">Testar a ferramenta agora</a>
+</div></div></div>
+</main>
+<footer>© Generative AI Share of Search</footer>
+</body>
+</html>
